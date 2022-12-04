@@ -7,8 +7,8 @@
 
 if __name__ == "__main__":
     import json
-    from urllib import request
     import sys
+    from urllib import request
 
     user_id = sys.argv[1]
     user = None
