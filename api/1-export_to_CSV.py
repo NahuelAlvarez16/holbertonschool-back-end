@@ -13,7 +13,6 @@ if __name__ == "__main__":
     user_id = sys.argv[1]
     user = None
     tasks = None
-    completed_tasks = None
 
     user_url = request.urlopen("https://jsonplaceholder.typicode.com"
                                "/users/{}".format(user_id))
@@ -22,15 +21,16 @@ if __name__ == "__main__":
     tasks_url = request.urlopen("https://jsonplaceholder.typicode.com"
                                 "/todos?userId={}".format(user_id))
     tasks = json.loads(tasks_url.read().decode("utf-8"))
-    completed_tasks = list(filter(lambda task: task["completed"], tasks))
 
     tasks_file = open("{}.csv".format(user["id"]), "w")
 
-    for task in completed_tasks:
+    for idx, task in enumerate(tasks):
         tasks_file.write("\"{}\",\"{}\","
-                         "\"{}\",\"{}\"\n".format(user["id"],
+                         "\"{}\",\"{}\"{}".format(user["id"],
                                                   user["name"],
                                                   task["completed"],
-                                                  task["title"]))
+                                                  task["title"],
+                                                  "\n" if idx < len(tasks) - 1
+                                                  else ""))
 
     tasks_file.close()
