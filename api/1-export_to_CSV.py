@@ -26,11 +26,9 @@ if __name__ == "__main__":
 
     for idx, task in enumerate(tasks):
         tasks_file.write("\"{}\",\"{}\","
-                         "\"{}\",\"{}\"{}".format(user["id"],
+                         "\"{}\",\"{}\"\n".format(user["id"],
                                                   user["name"],
                                                   task["completed"],
-                                                  task["title"],
-                                                  "\n" if idx < len(tasks) - 1
-                                                  else ""))
+                                                  task["title"])
 
     tasks_file.close()
