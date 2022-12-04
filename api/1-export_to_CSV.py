@@ -29,6 +29,6 @@ if __name__ == "__main__":
                          "\"{}\",\"{}\"\n".format(user["id"],
                                                   user["name"],
                                                   task["completed"],
-                                                  task["title"])
+                                                  task["title"]))
 
     tasks_file.close()
