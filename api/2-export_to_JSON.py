@@ -25,8 +25,16 @@ if __name__ == "__main__":
 
     tasks_file = open("{}.json".format(user["id"]), "w")
 
+    idx = "{}".format(user["id"])
     user_json = {
-        "{}".format(user["id"]): tasks
+        idx: []
     }
+    for task in tasks:
+        user_json[idx].append({
+            "task": task["title"],
+            "completed": task["completed"],
+            "username": user["username"]
+        })
+
     tasks_file.write(json.dumps(user_json))
     tasks_file.close()
