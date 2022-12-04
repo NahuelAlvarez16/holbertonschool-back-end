@@ -27,7 +27,7 @@ if __name__ == "__main__":
     for idx, task in enumerate(tasks):
         tasks_file.write("\"{}\",\"{}\","
                          "\"{}\",\"{}\"\n".format(user["id"],
-                                                  user["name"],
+                                                  user["username"],
                                                   task["completed"],
                                                   task["title"]))
 
