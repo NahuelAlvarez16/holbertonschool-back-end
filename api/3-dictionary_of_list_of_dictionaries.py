@@ -20,7 +20,7 @@ if __name__ == "__main__":
     tasks_url = request.urlopen("https://jsonplaceholder.typicode.com/todos")
     tasks = json.loads(tasks_url.read().decode("utf-8"))
 
-    tasks_file = open("todo_all_employees.json.json", "w")
+    tasks_file = open("todo_all_employees.json", "w")
 
     for user in users:
         idx = "{}".format(user["id"])
